@@ -1,0 +1,131 @@
+				Part 1: VirtualBox & Ubuntu Installation
+
+Ubuntu 22.04.5 LTS
+ubuntug login: gena
+Password:
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-40-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Fri Sep 13 10:22:12 IDT 2024 from fe80::cfdd:6bf9:6ee5:9a49%enp0s3 on pts/0
+gena@ubuntug:~$
+
+
+
+				Part 2: Linux Directory and File Creation
+
+gena@ubuntug:~/homework$ mkdir dir1 dir2 dir3
+
+gena@ubuntug:~/homework$ ls
+
+dir1  dir2  dir3
+
+gena@ubuntug:~/homework$ cd dir1
+
+gena@ubuntug:~/homework/dir1$ ls
+
+gena@ubuntug:~/homework/dir1$ touch file1.txt file2.txt file3.txt
+
+gena@ubuntug:~/homework/dir1$ ls
+
+file1.txt  file2.txt  file3.txt
+
+gena@ubuntug:~/homework/dir1$ ls -l
+
+total 0
+
+-rw-rw-r-- 1 gena gena 0 Sep 12 23:12 file1.txt
+
+-rw-rw-r-- 1 gena gena 0 Sep 12 23:12 file2.txt
+
+-rw-rw-r-- 1 gena gena 0 Sep 12 23:12 file3.txt
+
+gena@ubuntug:~/homework/dir1$ 
+gena@ubuntug:~/homework/dir1$ vim file1.txt 
+
+gena@ubuntug:~/homework/dir1$ cat file1.txt 
+
+homework 1
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+end of homework 1
+
+
+
+						Part 3: Using grep and find Commands
+
+
+gena@ubuntug:~$ find -type f -name "file*"
+./homework/dir1/file3.txt
+./homework/dir1/file1.txt
+./homework/dir1/file2.txt
+gena@ubuntug:~$ find ./ -type f -name "file*"
+./homework/dir1/file3.txt
+./homework/dir1/file1.txt
+./homework/dir1/file2.txt
+gena@ubuntug:~$
+gena@ubuntug:~$
+gena@ubuntug:~$ find ./ -type f -name "file*" -mtime -7
+./homework/dir1/file3.txt
+./homework/dir1/file1.txt
+./homework/dir1/file2.txt
+gena@ubuntug:~$
+gena@ubuntug:~$
+
+
+
+gena@ubuntug:~/homework/dir1$ cat file1.txt | grep 1
+homework 1
+1
+end of homework 1
+gena@ubuntug:~/homework/dir1$ cat file1.txt | grep 1 > outp.txt
+gena@ubuntug:~/homework/dir1$ ls
+file1.txt  file2.txt  file3.txt  google-chrome-stable_current_amd64.deb  outp.txt
+gena@ubuntug:~/homework/dir1$ cat outp.txt
+homework 1
+1
+end of homework 1
+gena@ubuntug:~/homework/dir1$
+gena@ubuntug:~/homework/dir1$
+gena@ubuntug:~/homework/dir1$
+gena@ubuntug:~/homework/dir1$
+gena@ubuntug:~/homework/dir1$
+gena@ubuntug:~/homework/dir1$ rm google-chrome-stable_current_amd64.deb
+gena@ubuntug:~/homework/dir1$ ls
+file1.txt  file2.txt  file3.txt  outp.txt
+gena@ubuntug:~/homework/dir1$
+
+gena@ubuntug:~/homework/dir1$ cat outp.txt
+homework 1
+1
+end of homework 1
+
