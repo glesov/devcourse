@@ -1,0 +1,76 @@
+
+Expanded Security Maintenance for Applications is not enabled.
+
+36 updates can be applied immediately.
+16 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Last login: Sat Sep 28 14:44:26 2024 from fe80::cfdd:6bf9:6ee5:9a49%enp0s3
+gena@ubuntug:~$ sudo docker ps -a
+[sudo] password for gena:
+CONTAINER ID   IMAGE         COMMAND                  CREATED             STATUS                       PORTS                                   NAMES
+82c4f4ad9c6e   my-nginx      "/docker-entrypoint.…"   About an hour ago   Exited (255) 4 minutes ago   0.0.0.0:8080->80/tcp, :::8080->80/tcp   friendly_nash
+6334526e9669   hello-world   "/hello"                 3 days ago          Exited (0) 3 days ago                                                silly_einstein
+gena@ubuntug:~$
+gena@ubuntug:~$
+gena@ubuntug:~$ cd /home/gena/homework/homework2/
+gena@ubuntug:~/homework/homework2$
+gena@ubuntug:~/homework/homework2$
+gena@ubuntug:~/homework/homework2$
+gena@ubuntug:~/homework/homework2$
+gena@ubuntug:~/homework/homework2$
+gena@ubuntug:~/homework/homework2$
+gena@ubuntug:~/homework/homework2$ sudo docker compose build
+[+] Building 0.4s (7/7) FINISHED                                                                     docker:default
+ => [nginx internal] load build definition from Dockerfile                                                     0.1s
+ => => transferring dockerfile: 104B                                                                           0.0s
+ => [nginx internal] load .dockerignore                                                                        0.1s
+ => => transferring context: 2B                                                                                0.0s
+ => [nginx internal] load metadata for docker.io/library/nginx:alpine                                          0.0s
+ => [nginx internal] load build context                                                                        0.0s
+ => => transferring context: 32B                                                                               0.0s
+ => [nginx 1/2] FROM docker.io/library/nginx:alpine                                                            0.0s
+ => CACHED [nginx 2/2] COPY index.html /usr/share/nginx/html/                                                  0.0s
+ => [nginx] exporting to image                                                                                 0.0s
+ => => exporting layers                                                                                        0.0s
+ => => writing image sha256:7ff2cbf13262bfad027cde0e311aa5770391120961953221a75b77c6ead11ad9                   0.0s
+ => => naming to docker.io/library/homework2-nginx                                                             0.0s
+gena@ubuntug:~/homework/homework2$ sudo docker compose up
+[+] Running 3/3
+ ✔ Network homework2_default    Created                                                                        0.6s
+ ✔ Container homework2-redis-1  Created                                                                        0.3s
+ ✔ Container homework2-nginx-1  Created                                                                        0.1s
+Attaching to homework2-nginx-1, homework2-redis-1
+homework2-redis-1  | 1:C 28 Sep 2024 14:57:02.645 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+homework2-redis-1  | 1:C 28 Sep 2024 14:57:02.666 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+homework2-redis-1  | 1:C 28 Sep 2024 14:57:02.666 * Redis version=7.4.0, bits=64, commit=00000000, modified=0, pid=1, just started
+homework2-redis-1  | 1:C 28 Sep 2024 14:57:02.666 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+homework2-redis-1  | 1:M 28 Sep 2024 14:57:02.672 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+homework2-redis-1  | 1:M 28 Sep 2024 14:57:02.672 * monotonic clock: POSIX clock_gettime
+homework2-redis-1  | 1:M 28 Sep 2024 14:57:02.694 * Running mode=standalone, port=6379.
+homework2-redis-1  | 1:M 28 Sep 2024 14:57:02.695 * Server initialized
+homework2-redis-1  | 1:M 28 Sep 2024 14:57:02.696 * Ready to accept connections tcp
+homework2-nginx-1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+homework2-nginx-1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+homework2-nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+homework2-nginx-1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+homework2-nginx-1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+homework2-nginx-1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+homework2-nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+homework2-nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+homework2-nginx-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: using the "epoll" event method
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: nginx/1.27.1
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: built by gcc 13.2.1 20240309 (Alpine 13.2.1_git20240309)
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: OS: Linux 6.8.0-45-generic
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: start worker processes
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: start worker process 29
+homework2-nginx-1  | 2024/09/28 14:57:23 [notice] 1#1: start worker process 30
+homework2-nginx-1  | 192.168.1.6 - - [28/Sep/2024:14:57:23 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" "-"
+homework2-nginx-1  | 2024/09/28 14:57:24 [error] 30#30: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.6, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "ubuntug:8080", referrer: "http://ubuntug:8080/"
+homework2-nginx-1  | 192.168.1.6 - - [28/Sep/2024:14:57:24 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://ubuntug:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" "-"
+

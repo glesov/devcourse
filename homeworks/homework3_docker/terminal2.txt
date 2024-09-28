@@ -1,0 +1,7 @@
+gena@ubuntug:~$ sudo docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED             STATUS                       PORTS                                       NAMES
+8d59000b7ad9   homework2-nginx   "/docker-entrypoint.…"   2 minutes ago       Up 2 minutes                 0.0.0.0:8080->80/tcp, :::8080->80/tcp       homework2-nginx-1
+c7c0497645c0   redis:alpine      "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes                 0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   homework2-redis-1
+82c4f4ad9c6e   my-nginx          "/docker-entrypoint.…"   About an hour ago   Exited (255) 8 minutes ago   0.0.0.0:8080->80/tcp, :::8080->80/tcp       friendly_nash
+6334526e9669   hello-world       "/hello"                 3 days ago          Exited (0) 3 days ago                                                    silly_einstein
+gena@ubuntug:~$
