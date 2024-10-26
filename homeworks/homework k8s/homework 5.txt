@@ -1,0 +1,67 @@
+Here's a definition for namespace using a YAML file:
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-namespace
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-second-namespace
+
+Here's a definition for deployment:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  namespace: my-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+
+Here's a definition for service:
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: my-second-namespace
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+	  
+
+
+
+Save namespace/deployment/service YAML files: namespace1.yaml, namespace2.yaml, deployment.yaml, and service.yaml.
+
+Apply YAML files:
+
+	kubectl apply -f namespace1.yaml
+	kubectl apply -f namespace2.yaml
+	kubectl apply -f deployment.yaml
+	kubectl apply -f service.yaml
+
+	
+	
+
+
